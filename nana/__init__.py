@@ -26,8 +26,8 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     logging.error('Python version Lower than 3.6! Abort!')
     sys.exit()
 
-USERBOT_VERSION = '3.2.2'
-ASSISTANT_VERSION = '3.2.2'
+USERBOT_VERSION = '3.2.2-c'
+ASSISTANT_VERSION = '3.2.2-c'
 
 OFFICIAL_BRANCH = ['master', 'translations']
 RANDOM_STICKERS = [
