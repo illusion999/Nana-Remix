@@ -14,6 +14,7 @@ from nana import (
     REPOSITORY,
 )
 from nana.__main__ import reload_userbot, restart_all
+from nana.utils import filt
 from nana.utils.dynamic_filt import dynamic_data_filter
 from nana.languages.strings import tld
 
@@ -68,7 +69,7 @@ async def get_button_settings():
 
 @setbot.on_message(
     filters.user(AdminSettings) &
-    filters.command(['settings']) &
+    filt.command(['settings']) &
     filters.private,
 )
 async def settings(_, message):

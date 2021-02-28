@@ -16,6 +16,7 @@ from nana import (
     app,
     StartTime,
 )
+from nana.utils import filt
 from nana.utils.misc import paginate_modules
 from nana.plugins.chats import get_msgc
 from nana.languages.strings import tld
@@ -66,7 +67,7 @@ async def help_parser(client, chat_id, text, keyboard=None):
         await client.send_message(chat_id, text, reply_markup=keyboard)
 
 
-@setbot.on_message(filters.user(AdminSettings) & filters.command(['help']))
+@setbot.on_message(filters.user(AdminSettings) & filt.command(['help']))
 async def help_command(client, message):
     if message.chat.type != 'private':
         buttons = InlineKeyboardMarkup(
@@ -138,7 +139,7 @@ async def help_button(_, query):
 
 @setbot.on_message(
     filters.user(AdminSettings)
-    & filters.command(['stats'])
+    & filt.command(['stats'])
     & (filters.group | filters.private),
 )
 async def stats(_, message):

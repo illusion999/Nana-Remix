@@ -16,6 +16,7 @@ from nana import OwnerName
 from nana import setbot
 from nana import USERBOT_VERSION
 from nana.languages.strings import tld
+from nana.utils import filt
 from nana.plugins.assistant.settings import get_button_settings
 from nana.plugins.assistant.settings import get_text_settings
 from nana.utils.dynamic_filt import dynamic_data_filter
@@ -48,7 +49,7 @@ Here are some links for you
     await message.reply(msg, reply_markup=buttons)
 
 
-@setbot.on_message(filters.user(AdminSettings) & filters.command(['start']))
+@setbot.on_message(filters.user(AdminSettings) & filt.command(['start']))
 async def start(_, message):
     if message.chat.type != 'private':
         await message.reply('henlo ^0^')
@@ -103,7 +104,7 @@ async def start(_, message):
             )
 
 
-@setbot.on_message(filters.user(AdminSettings) & filters.command(['getme']))
+@setbot.on_message(filters.user(AdminSettings) & filt.command(['getme']))
 async def get_myself(client, message):
     try:
         me = await app.get_me()
